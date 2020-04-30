@@ -7,6 +7,8 @@ import dash_html_components as html
 import pandas as pd
 
 app = dash.Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+server = app.server
+app.title='Spotifind'
 
 df = pd.read_csv('song_data.csv')
 df = df[1:50]
@@ -41,7 +43,7 @@ def display_table(dropdown_value):
     return generate_table(dff)
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
 
 
 '''
