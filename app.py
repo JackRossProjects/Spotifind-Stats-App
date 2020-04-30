@@ -5,6 +5,7 @@ import dash_html_components as html
 import pandas as pd
 
 df = pd.read_csv('song_data.csv')
+df = df[1:50]
 
 def generate_table(dataframe, max_rows=10):
     return html.Table(
@@ -36,8 +37,6 @@ def display_table(dropdown_value):
 
     dff = df[df.song_name.str.contains('|'.join(dropdown_value))]
     return generate_table(dff)
-
-app.css.append_css({"external_url": "https://codepen.io/chriddyp/pen/bWLwgP.css"})
 
 if __name__ == '__main__':
     app.run_server(debug=True)
