@@ -6,6 +6,8 @@ import dash_html_components as html
 
 import pandas as pd
 
+app = dash.Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen/bWLwgP.css'])
+
 df = pd.read_csv('song_data.csv')
 df = df[1:50]
 
@@ -19,8 +21,6 @@ def generate_table(dataframe, max_rows=10):
             html.Td(dataframe.iloc[i][col]) for col in dataframe.columns
         ]) for i in range(min(len(dataframe), max_rows))]
     )
-
-app = dash.Dash()
 
 app.layout = html.Div(children=[
     html.H4(children='Song Stats'),
