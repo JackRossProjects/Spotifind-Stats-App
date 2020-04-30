@@ -10,6 +10,11 @@ app = dash.Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen
 server = app.server
 app.title='Spotifind'
 
+colors = {
+    'background': '#1DB954',
+    'text': '#FFFFFF'
+}
+
 
 # UPDATE CLEANED CSV
 df = pd.read_csv('songs_scaled.csv')
@@ -25,7 +30,7 @@ def generate_table(dataframe, max_rows=10):
         ]) for i in range(min(len(dataframe), max_rows))]
     )
 
-app.layout = html.Div(children=[
+app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H4(children='Song Stats'),
     dcc.Dropdown(id='dropdown', options=[
         {'label': i, 'value': i} for i in df.song_name.unique()
