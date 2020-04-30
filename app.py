@@ -30,14 +30,7 @@ app.layout = html.Div(children=[
     dcc.Dropdown(id='dropdown', options=[
         {'label': i, 'value': i} for i in df.song_name.unique()
     ], multi=True, placeholder='Songs'),
-    html.Div(id='table-container'),
-    html.Div([
-        html.H1('Extra Song Info'),
-        html.Div([
-            html.P('Popularity: '),
-            html.P('This conversion happens behind the scenes by Dashs JavaScript front-end')
-    ])
-])
+    html.Div(id='table-container')
 ])
 
 @app.callback(
