@@ -11,7 +11,6 @@ server = app.server
 app.title='Spotifind'
 
 df = pd.read_csv('song_data.csv')
-df = df[1:50]
 
 def generate_table(dataframe, max_rows=10):
     return html.Table(
