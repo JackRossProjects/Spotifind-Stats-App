@@ -1,4 +1,4 @@
-#V5
+# STATS
 
 import dash
 import dash_core_components as dcc
@@ -10,7 +10,9 @@ app = dash.Dash(__name__, external_stylesheets=['https://codepen.io/chriddyp/pen
 server = app.server
 app.title='Spotifind'
 
-df = pd.read_csv('song_data.csv')
+
+# UPDATE CLEANED CSV
+df = pd.read_csv('songs_scaled.csv')
 
 def generate_table(dataframe, max_rows=10):
     return html.Table(
@@ -28,7 +30,14 @@ app.layout = html.Div(children=[
     dcc.Dropdown(id='dropdown', options=[
         {'label': i, 'value': i} for i in df.song_name.unique()
     ], multi=True, placeholder='Songs'),
-    html.Div(id='table-container')
+    html.Div(id='table-container'),
+    html.Div([
+        html.H1('Extra Song Info'),
+        html.Div([
+            html.P('Popularity: '),
+            html.P('This conversion happens behind the scenes by Dashs JavaScript front-end')
+    ])
+])
 ])
 
 @app.callback(
