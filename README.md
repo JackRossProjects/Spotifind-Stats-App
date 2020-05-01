@@ -1,0 +1,1 @@
+<a href="http://www.spotifind-stats.herokuapp.com"><img src="https://github.com/JackRossProjects/Spotifind-Slider-App/blob/master/Logos/spotify_hex_white.png?raw=true" title="Spotifind" alt="Jack Ross Projects"></a>
