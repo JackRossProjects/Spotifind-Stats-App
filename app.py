@@ -33,7 +33,7 @@ def generate_table(dataframe, max_rows=25):
 app.layout = html.Div(style={'backgroundColor': colors['background']}, children=[
     html.H4(children='Song Stats'),
     dcc.Dropdown(id='dropdown', options=[
-        {'label': i, 'value': i} for i in df.song_name.unique()
+        {'label': i, 'value': i} for i in df.Song.unique()
     ], multi=True, placeholder='Songs'),
     html.Div(id='table-container')
 ])
@@ -45,7 +45,7 @@ def display_table(dropdown_value):
     if dropdown_value is None:
         return generate_table(df)
 
-    dff = df[df.song_name.str.contains('|'.join(dropdown_value))]
+    dff = df[df.Song.str.contains('|'.join(dropdown_value))]
     return generate_table(dff)
 
 if __name__ == '__main__':
